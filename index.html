@@ -77,10 +77,114 @@
     .material-symbols-outlined {
       font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
     }
-    body { font-family: 'Work Sans', sans-serif; background-color: #FDFCFB; }
+    body { font-family: 'Work Sans', sans-serif; background-color: #FDFCFB; transition: background-color .4s, color .4s; }
     .font-serif { font-family: 'Noto Serif', serif; }
     .font-mono  { font-family: 'DM Mono', monospace; }
     .editorial-shadow { box-shadow: 0 30px 60px -15px rgba(26,22,15,0.06); }
+
+    /* ═══ DARK MODE ═══ */
+    html.dark body { background-color:#0F0D0A; color:#E8E2D9; }
+
+    /* Backgrounds */
+    html.dark .bg-bg,
+    html.dark .bg-cream,
+    html.dark header  { background-color:#0F0D0A !important; }
+    html.dark .bg-white,
+    html.dark .bg-surface { background-color:#1A1714 !important; }
+    html.dark .bg-surface-lo { background-color:#141210 !important; }
+    html.dark .bg-surface-hi { background-color:#1F1C17 !important; }
+    html.dark .bg-gold-pale { background:rgba(168,120,42,0.10) !important; }
+
+    /* Nav */
+    html.dark nav.fixed { background:rgba(15,13,10,0.92) !important; border-color:rgba(168,120,42,0.15) !important; }
+
+    /* Text */
+    html.dark .text-ink { color:#E8E2D9 !important; }
+    html.dark .text-ink-mid { color:#9B917F !important; }
+    html.dark .text-ink-lt { color:#706858 !important; }
+    html.dark h1, html.dark h2, html.dark h3, html.dark h4 { color:#E8E2D9 !important; }
+    html.dark h1 em, html.dark .text-gold { color:#C9943E !important; }
+    html.dark p { color:#9B917F; }
+
+    /* Borders */
+    html.dark .border-border { border-color:rgba(168,120,42,0.12) !important; }
+    html.dark [class*="border-border/"] { border-color:rgba(168,120,42,0.10) !important; }
+
+    /* Cards & containers */
+    html.dark [class*="bg-surface-lo"][class*="border"] { background:#141210 !important; border-color:rgba(168,120,42,0.12) !important; }
+    html.dark [class*="bg-surface-lo"][class*="border"]:hover { border-color:rgba(168,120,42,0.35) !important; }
+    html.dark [class*="bg-white"][class*="border"] { background:#1A1714 !important; border-color:rgba(168,120,42,0.12) !important; }
+
+    /* Inputs */
+    html.dark input, html.dark input:focus { background:#0F0D0A !important; border-color:rgba(168,120,42,0.2) !important; color:#E8E2D9 !important; }
+    html.dark input:focus { border-color:#A8782A !important; }
+
+    /* Comparison table */
+    html.dark .compare-table thead th { color:#706858 !important; border-color:rgba(168,120,42,0.15) !important; }
+    html.dark .compare-table thead th:last-child { background:rgba(168,120,42,0.10) !important; color:#C9943E !important; }
+    html.dark .compare-table tbody td { color:#9B917F !important; border-color:rgba(168,120,42,0.08) !important; }
+    html.dark .compare-table tbody td:first-child { color:#E8E2D9 !important; }
+    html.dark .compare-table tbody td:last-child { background:rgba(168,120,42,0.06) !important; color:#E8E2D9 !important; }
+
+    /* Ecosystem cards */
+    html.dark section a[class*="bg-white"][class*="border"] { background:#1A1714 !important; border-color:rgba(168,120,42,0.12) !important; }
+    html.dark section a[class*="bg-white"][class*="border"]:hover { border-color:rgba(168,120,42,0.4) !important; box-shadow:0 8px 24px rgba(168,120,42,0.08) !important; }
+
+    /* Nav pills */
+    html.dark .hidden.lg\\:flex a[class*="rounded-full"] { border-color:rgba(168,120,42,0.2) !important; color:#9B917F !important; }
+    html.dark .hidden.lg\\:flex a[class*="rounded-full"]:hover { border-color:#A8782A !important; color:#A8782A !important; background:rgba(168,120,42,0.08) !important; }
+
+    /* Social links in footer */
+    html.dark a[class*="inline-flex"][class*="border-border"] { border-color:rgba(168,120,42,0.15) !important; color:#9B917F !important; }
+    html.dark a[class*="inline-flex"][class*="border-border"]:hover { border-color:#A8782A !important; color:#A8782A !important; }
+
+    /* Footer */
+    html.dark footer { background:#0F0D0A !important; border-color:rgba(168,120,42,0.12) !important; }
+    html.dark footer a { color:#9B917F !important; }
+    html.dark footer a:hover { color:#C9943E !important; }
+
+    /* Hero grid overlay */
+    html.dark header .opacity-30 { opacity:0.06 !important; }
+
+    /* Pay panel */
+    html.dark .pay-panel > div { background:#141210 !important; border-color:rgba(168,120,42,0.12) !important; }
+    html.dark .pay-btn { background:#1A1714; }
+    html.dark .pay-btn:hover, html.dark .pay-btn.open { background:#A8782A; }
+
+    /* Gold-pale backgrounds in pay section */
+    html.dark [style*="background"] { }
+    html.dark div[class*="bg-gold-pale"] { background:rgba(168,120,42,0.10) !important; }
+
+    /* Breadcrumb */
+    html.dark nav[aria-label="Breadcrumb"] { color:#706858; }
+
+    /* UPI app buttons */
+    html.dark button[class*="bg-white"][class*="border-border"] { background:#1A1714 !important; border-color:rgba(168,120,42,0.12) !important; }
+    html.dark button[class*="bg-white"][class*="border-border"]:hover { background:rgba(168,120,42,0.10) !important; border-color:#A8782A !important; }
+
+    /* Editorial shadow */
+    html.dark .editorial-shadow { box-shadow:0 30px 60px -15px rgba(0,0,0,0.3); }
+
+    /* FAQ buttons */
+    html.dark .faq-toggle { color:#E8E2D9 !important; }
+    html.dark .faq-answer div { color:#9B917F !important; }
+
+    /* Pricing section — already dark, keep it */
+    html.dark #pricing { background-color:#0F0D0A !important; }
+    html.dark #pricing h2 { color:#fff !important; }
+    html.dark #pricing .text-white { color:#fff !important; }
+    html.dark #pricing .bg-ink { background-color:#0F0D0A !important; }
+
+    /* Keep nav link colors */
+    html.dark .hidden.md\\:flex a { color:#9B917F !important; }
+    html.dark .hidden.md\\:flex a:hover { color:#C9943E !important; }
+
+    /* Theme toggle */
+    .theme-toggle { width:44px; height:24px; border-radius:12px; border:1px solid #E8E2D9; background:#F9F6F1; position:relative; cursor:pointer; transition:all .3s; flex-shrink:0; }
+    .theme-toggle .toggle-knob { width:18px; height:18px; border-radius:50%; background:#A8782A; position:absolute; top:2px; left:2px; transition:transform .3s cubic-bezier(0.68,-0.2,0.27,1.2); display:flex; align-items:center; justify-content:center; }
+    .theme-toggle .toggle-knob .material-symbols-outlined { font-size:11px; color:#fff; }
+    html.dark .theme-toggle { background:#1A1714; border-color:rgba(168,120,42,0.3); }
+    html.dark .theme-toggle .toggle-knob { transform:translateX(20px); background:#C9943E; }
 
     /* FAQ accordion */
     .faq-answer { max-height:0; overflow:hidden; transition:max-height .35s ease, padding .35s ease; }
@@ -103,6 +207,11 @@
     /* Comparison table */
     .compare-table thead th:last-child { background:rgba(168,120,42,0.06); color:#A8782A; }
     .compare-table tbody td:last-child { background:rgba(168,120,42,0.03); font-weight:600; color:#1A160F; }
+    html.dark .compare-table tbody td:last-child { color:#E8E2D9; }
+
+    /* Smooth transitions for all theme-affected elements */
+    *, *::before, *::after { transition-property: background-color, border-color, color; transition-duration: 0s; }
+    html.theme-transitioning *, html.theme-transitioning *::before, html.theme-transitioning *::after { transition-duration: .4s; }
   </style>
 
   <!-- Structured Data -->
@@ -152,9 +261,9 @@
 <body class="text-ink antialiased selection:bg-gold-pale selection:text-ink">
 
 <!-- ═══════════════════════════════════════════════════════ NAV -->
-<nav class="fixed top-0 w-full z-50 bg-cream/88 backdrop-blur-2xl border-b border-border/45 editorial-shadow">
+<nav class="fixed top-0 w-full z-50 bg-cream/88 backdrop-blur-2xl border-b border-border/45 editorial-shadow dm-nav">
   <div class="max-w-[1280px] mx-auto flex items-center justify-between px-12 h-20 max-md:px-6">
-    <a href="#" class="font-headline text-xl font-bold tracking-tight text-ink no-underline">FullOnBaan <span class="text-gold">Membership</span></a>
+    <a href="#" class="font-headline text-xl font-bold tracking-tight text-ink no-underline dm-ink">FullOnBaan <span class="text-gold">Membership</span></a>
     <div class="hidden md:flex items-center gap-9">
       <a class="text-ink-mid font-body uppercase tracking-[0.2em] text-[10px] font-bold hover:text-gold transition-colors duration-300 no-underline" href="#benefits">Benefits</a>
       <a class="text-ink-mid font-body uppercase tracking-[0.2em] text-[10px] font-bold hover:text-gold transition-colors duration-300 no-underline" href="#ebooks">eBooks</a>
@@ -173,6 +282,10 @@
           <span class="w-1.5 h-1.5 rounded-full bg-purple-400 shrink-0"></span>Certs
         </a>
       </div>
+      <!-- Theme toggle -->
+      <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" aria-label="Toggle dark mode" title="Toggle dark mode">
+        <span class="toggle-knob"><span class="material-symbols-outlined" id="themeIcon">light_mode</span></span>
+      </button>
       <a class="bg-ink hover:bg-gold text-white px-7 py-3 font-body text-[11px] font-bold uppercase tracking-[0.2em] transition-colors duration-200 no-underline inline-block" href="#join">Join Now</a>
     </div>
   </div>
@@ -195,9 +308,9 @@
 <article>
 
 <!-- ═══════════════════════════════════════════════════════ HERO -->
-<header class="relative pt-48 pb-32 px-12 overflow-hidden bg-bg max-md:pt-32 max-md:pb-20 max-md:px-6">
+<header class="relative pt-48 pb-32 px-12 overflow-hidden bg-bg max-md:pt-32 max-md:pb-20 max-md:px-6 dm-bg">
   <!-- Grid background -->
-  <div class="absolute inset-0 pointer-events-none opacity-30" style="background-image:linear-gradient(#E8E2D9 1px,transparent 1px),linear-gradient(90deg,#E8E2D9 1px,transparent 1px);background-size:64px 64px;"></div>
+  <div class="absolute inset-0 pointer-events-none opacity-30 dm-grid-bg" style="background-image:linear-gradient(#E8E2D9 1px,transparent 1px),linear-gradient(90deg,#E8E2D9 1px,transparent 1px);background-size:64px 64px;"></div>
   <!-- Radial glow -->
   <div class="absolute inset-0 pointer-events-none" style="background:radial-gradient(circle at top right,rgba(168,120,42,0.06),transparent 40%),radial-gradient(circle at bottom left,rgba(168,120,42,0.04),transparent 30%);"></div>
 
@@ -210,7 +323,7 @@
         <div class="h-px w-10 bg-gold/35"></div>
       </div>
 
-      <h1 class="font-headline text-5xl md:text-7xl lg:text-[82px] font-bold leading-[1.08] text-ink mb-7 tracking-tight">
+      <h1 class="font-headline text-5xl md:text-7xl lg:text-[82px] font-bold leading-[1.08] text-ink mb-7 tracking-tight dm-ink">
         The Complete Infor LN<br><em class="font-normal text-gold">Membership</em>
       </h1>
 
@@ -242,9 +355,9 @@
 
     <!-- Right column — decorative card -->
     <div class="lg:col-span-5 relative hidden lg:block">
-      <div class="bg-surface-lo border border-border p-10 rounded-xl editorial-shadow">
+      <div class="bg-surface-lo border border-border p-10 rounded-xl editorial-shadow dm-card">
         <span class="font-headline italic text-5xl text-gold/25 block mb-4">01.</span>
-        <h3 class="font-headline text-2xl font-bold text-ink mb-3">Your Membership Includes</h3>
+        <h3 class="font-headline text-2xl font-bold text-ink mb-3 dm-ink">Your Membership Includes</h3>
         <ul class="space-y-3 text-sm text-ink-mid font-body leading-relaxed">
           <li class="flex items-start gap-3"><span class="text-gold font-bold mt-0.5">&#x2713;</span> 7 Premium Infor LN eBooks</li>
           <li class="flex items-start gap-3"><span class="text-gold font-bold mt-0.5">&#x2713;</span> 1 Free Certification Attempt</li>
@@ -252,11 +365,11 @@
           <li class="flex items-start gap-3"><span class="text-gold font-bold mt-0.5">&#x2713;</span> 15% Off Training Courses</li>
           <li class="flex items-start gap-3"><span class="text-gold font-bold mt-0.5">&#x2713;</span> Free Interview Prep Guide</li>
           <li class="flex items-start gap-3"><span class="text-gold font-bold mt-0.5">&#x2713;</span> Premium WhatsApp Community</li>
-          <li class="flex items-start gap-3"><span class="text-gold font-bold mt-0.5">&#x2713;</span> Priority Expert Support</li>
+
         </ul>
       </div>
       <!-- Floating accent -->
-      <div class="absolute -bottom-6 right-4 bg-white p-5 rounded-lg shadow-xl max-w-[200px] border border-border/15 z-20">
+      <div class="absolute -bottom-6 -right-10 bg-white p-5 rounded-lg shadow-xl max-w-[200px] border border-border/15 z-20 dm-card">
         <span class="font-headline italic text-2xl text-gold block mb-1">500+</span>
         <p class="font-body text-xs text-ink-lt leading-relaxed">Infor LN professionals trust FullOnBaan for their career growth.</p>
       </div>
@@ -265,11 +378,11 @@
 </header>
 
 <!-- ═══════════════════════════════════════════════════════ FEATURES (3 pillars) -->
-<section class="py-24 px-12 bg-white border-t border-b border-border max-md:px-6 max-md:py-16">
+<section class="py-24 px-12 bg-white border-t border-b border-border max-md:px-6 max-md:py-16 dm-surface dm-border">
   <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-3 gap-20 max-md:gap-12">
     <div>
       <span class="font-headline italic text-[40px] text-gold/35 block mb-5">01.</span>
-      <div class="font-headline text-[22px] font-bold text-ink mb-4">Comprehensive Library</div>
+      <div class="font-headline text-[22px] font-bold text-ink mb-4 dm-ink">Comprehensive Library</div>
       <p class="text-sm text-ink-mid font-light leading-relaxed">Instant access to 7 premium Infor LN eBooks spanning development, finance, integration, multisite, and procurement &mdash; your complete reference library.</p>
     </div>
     <div>
@@ -372,14 +485,6 @@
           </div>
         </div>
 
-        <div class="flex gap-6">
-          <span class="material-symbols-outlined text-gold text-3xl shrink-0">support_agent</span>
-          <div>
-            <h4 class="font-headline text-xl font-bold mb-2">Direct Expert Support</h4>
-            <p class="text-sm text-ink-mid leading-relaxed">Priority WhatsApp and email support for technical queries, career guidance, and project-specific Infor LN questions.</p>
-            <span class="inline-block mt-2 text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full bg-rust/8 border border-rust/20 text-rust">Priority</span>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -423,7 +528,6 @@
         <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Course Discounts</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">Full price</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> 15% off all courses</td></tr>
         <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Interview Prep Guide</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">&#x20B9;699 each</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> 1 free guide</td></tr>
         <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Premium Community</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">No access</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> Freelancing &amp; networking</td></tr>
-        <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Priority Support</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">Standard</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> Priority access</td></tr>
         <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left">Early Access Content</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center">No</td><td class="px-5 py-4 text-[13px] text-center"><span class="text-green font-bold">&#x2713;</span> First to know</td></tr>
       </tbody>
     </table>
@@ -450,7 +554,6 @@
         <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> 1 free interview preparation guide (worth &#x20B9;699)</li>
         <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> Premium WhatsApp group for freelancing</li>
         <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> Priority access to all new content releases</li>
-        <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> Direct expert support via WhatsApp &amp; email</li>
         <li class="text-[13px] text-white/70 py-2.5 flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> Full ecosystem access &mdash; 37,000+ knowledge threads</li>
       </ul>
       <button class="w-full py-5 bg-gold hover:bg-white hover:text-ink text-white font-body text-[12px] font-bold tracking-[0.2em] uppercase cursor-pointer transition-colors border-none" onclick="document.getElementById('join').scrollIntoView({behavior:'smooth'});var pb=document.getElementById('payBtn'),pp=document.getElementById('payPanel');if(!pp.classList.contains('open')){pb.classList.add('open');pp.classList.add('open');}">
@@ -533,7 +636,7 @@
           What is included in the FullOnBaan Lifetime Membership?
           <span class="absolute right-0 top-1/2 -translate-y-1/2 font-body text-2xl font-light text-gold" style="content:'+';transition:transform .25s;">+</span>
         </button>
-        <div class="faq-answer"><div class="pb-6 text-sm text-ink-mid font-light leading-relaxed">Your membership includes 7 premium Infor LN eBooks, 1 free certification attempt at certification.fullonbaan.com, 20% discount on all eBooks at training.fullonbaan.com, 15% discount on all training courses at courses.fullonbaan.com, 1 free interview preparation guide from interview.fullonbaan.com, access to the premium WhatsApp group for freelancing opportunities, priority access to new content, and direct expert support.</div></div>
+        <div class="faq-answer"><div class="pb-6 text-sm text-ink-mid font-light leading-relaxed">Your membership includes 7 premium Infor LN eBooks, 1 free certification attempt at certification.fullonbaan.com, 20% discount on all eBooks at training.fullonbaan.com, 15% discount on all training courses at courses.fullonbaan.com, 1 free interview preparation guide from interview.fullonbaan.com, access to the premium WhatsApp group for freelancing opportunities, and priority access to new content.</div></div>
       </div>
 
       <div class="faq-item border-b border-border">
@@ -795,9 +898,9 @@
 </footer>
 
 <!-- ═══════════════════════════════════════════════════════ STICKY BAR -->
-<div class="sticky-bar fixed bottom-0 left-0 right-0 z-50 bg-ink/96 backdrop-blur-xl border-t border-gold/25 py-3.5 px-12 flex items-center justify-center gap-6 max-md:px-5 max-md:gap-4" id="stickyBar">
-  <span class="font-body text-[13px] font-medium text-white/70 max-md:text-[11px]">Lifetime Membership <strong class="text-gold font-bold">&#x20B9;1,999</strong> &nbsp;&#183;&nbsp; 7 eBooks + Certification + Discounts</span>
-  <a class="px-9 py-3 bg-gold text-white font-body text-[11px] font-bold tracking-[0.2em] uppercase no-underline hover:bg-white hover:text-ink transition-colors inline-block" href="#join" onclick="var pb=document.getElementById('payBtn'),pp=document.getElementById('payPanel');if(!pp.classList.contains('open')){pb.classList.add('open');pp.classList.add('open');}">Join Now</a>
+<div class="sticky-bar fixed bottom-0 left-0 right-0 z-50 backdrop-blur-xl py-3.5 px-12 flex items-center justify-center gap-6 max-md:px-5 max-md:gap-4" id="stickyBar" style="background:rgba(26,22,15,0.96);border-top:1px solid rgba(168,120,42,0.25);">
+  <span class="font-body text-[13px] font-medium max-md:text-[11px]" style="color:rgba(255,255,255,0.7);">Lifetime Membership <strong style="color:#C9943E;font-weight:700;">&#x20B9;1,999</strong> &nbsp;&#183;&nbsp; 7 eBooks + Certification + Discounts</span>
+  <a class="px-9 py-3 text-white font-body text-[11px] font-bold tracking-[0.2em] uppercase no-underline hover:bg-white hover:text-ink transition-colors inline-block" style="background:#A8782A;" href="#join" onclick="var pb=document.getElementById('payBtn'),pp=document.getElementById('payPanel');if(!pp.classList.contains('open')){pb.classList.add('open');pp.classList.add('open');}">Join Now</a>
 </div>
 
 <!-- ═══════════════════════════════════════════════════════ SCRIPTS -->
@@ -937,6 +1040,30 @@
       }); ticking = true; }
     }, {passive:true});
   })();
+
+  // ═══ Dark / Light Theme Toggle ═══
+  (function(){
+    var saved = localStorage.getItem('fob-theme');
+    if(saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme:dark)').matches)){
+      document.documentElement.classList.add('dark');
+    }
+    updateIcon();
+  })();
+
+  function updateIcon(){
+    var icon = document.getElementById('themeIcon');
+    if(!icon) return;
+    icon.textContent = document.documentElement.classList.contains('dark') ? 'dark_mode' : 'light_mode';
+  }
+
+  window.toggleTheme = function(){
+    document.documentElement.classList.add('theme-transitioning');
+    document.documentElement.classList.toggle('dark');
+    var isDark = document.documentElement.classList.contains('dark');
+    localStorage.setItem('fob-theme', isDark ? 'dark' : 'light');
+    updateIcon();
+    setTimeout(function(){ document.documentElement.classList.remove('theme-transitioning'); }, 450);
+  };
 </script>
 
 </body>
