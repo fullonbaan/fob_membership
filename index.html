@@ -1468,7 +1468,7 @@ window.onPaymentFailure = function(errObj){
     '<br><strong>Email:</strong> '+userData.email;
   showStep('step5');
   var errMsg = errObj?(' Reason: '+(errObj.description||errObj.reason||'Unknown')):'';
-  sendEmail({to_email:'fullonbaan@gmail.com',subject:'Membership Payment Failed \u2014 '+(userData.name||'Unknown'),status:'PAYMENT FAILED',order_ref:txnRef||'N/A',guide:MEMBERSHIP.name,amount:fmtMoney(selAmount||0,selCurr),cust_name:userData.name||'',cust_email:userData.email||'',cust_mobile:userData.mobile?('+91 '+userData.mobile):'',message:'Razorpay payment failed.'+errMsg});
+  sendEmail({to_email:'fullonbaan@gmail.com',subject:'Membership Payment Failed \u2014 '+(userData.name||'Unknown'),status:'PAYMENT FAILED',order_ref:txnRef||'N/A',guide:MEMBERSHIP.name,amount:fmtMoney(selAmount||0,selCurr),cust_name:userData.name||'',cust_email:userData.email||'',cust_mobile:userData.mobile?(userData.mobileCode+' '+userData.mobile):'',message:'Razorpay payment failed.'+errMsg});
 };
 
 /* ── EmailJS ── */
@@ -1651,7 +1651,7 @@ function generateGSTInvoice(inv){
   if(inv.billCountry) addrLines.push(inv.billCountry==='IN'?'India':String(inv.billCountry));
   addrLines.forEach(function(l){var wrapped=doc.splitTextToSize(l,midX-PAD-28);wrapped.forEach(function(w){doc.text(w,PAD+10,billY);billY+=11;});});
   if(inv.email){doc.text('Email: '+inv.email,PAD+10,billY); billY+=11;}
-  if(inv.mobile){doc.text('Mobile: +91 '+inv.mobile,PAD+10,billY); billY+=11;}
+  if(inv.mobile){doc.text('Mobile: '+INV_MOBILE_CODE+' '+inv.mobile,PAD+10,billY); billY+=11;}
   if(inv.gstin){doc.setFont('helvetica','bold');doc.setTextColor(NAVY[0],NAVY[1],NAVY[2]);doc.text('GSTIN: '+String(inv.gstin).toUpperCase(),PAD+10,billY); billY+=11; doc.setFont('helvetica','normal');doc.setTextColor(INK[0],INK[1],INK[2]);}
 
   doc.setFillColor(LGREY[0],LGREY[1],LGREY[2]);doc.setDrawColor(MGREY[0],MGREY[1],MGREY[2]);doc.rect(midX,r2Y,W-midX-PAD,billBoxH,'FD');
@@ -1858,7 +1858,8 @@ function admCard(r){
   var acts = '';
   if(r.email)acts+='<button class="acopy" onclick="admCp(\''+aE(r.email)+'\',\'Email\')">📧 Email</button>';
   if(r.utr)acts+='<button class="acopy" onclick="admCp(\''+aE(r.utr)+'\',\'Payment ID\')">🔑 Pay ID</button>';
-  if(r.mobile)acts+='<button class="acopy" onclick="admCp(\'+91'+aE(r.mobile)+'\',\'Mobile\')">📱 Mobile</button>';
+  var rMobCode = r.mobileCode||'+91';
+  if(r.mobile)acts+='<button class="acopy" onclick="admCp(\''+aE(rMobCode+' '+r.mobile)+'\',\'Mobile\')">📱 Mobile</button>';
   if(r.gstin)acts+='<button class="acopy" onclick="admCp(\''+aE(String(r.gstin).toUpperCase())+'\',\'GSTIN\')" style="border-color:rgba(34,197,94,0.4);color:#16a34a;">🏢 GSTIN</button>';
   acts+='<button class="acopy" onclick="admCp(\''+aE(r.orderId)+'\',\'Ref\')">📋 Ref</button>';
   acts+='<button class="acopy" onclick="admEditOpen(\''+aE(r.orderId)+'\')" style="background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.4);color:#16a34a;">✏️ Edit Billing</button>';
@@ -1870,7 +1871,7 @@ function admCard(r){
   return '<div class="acard" style="background:#fff;border:1px solid var(--border,#E8E2D9);padding:14px;margin-bottom:12px;">'+
     '<div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:10px;">'+
       '<div><div style="font-weight:700;color:#1A1612;font-size:14px;">'+aH(r.name||'—')+'</div>'+
-      '<div style="font-size:12px;color:#5A4F47;">'+aH(r.email||'—')+(r.mobile?' · +91 '+aH(r.mobile):'')+'</div></div>'+
+      '<div style="font-size:12px;color:#5A4F47;">'+aH(r.email||'—')+(r.mobile?' · '+aH(rMobCode)+' '+aH(r.mobile):'')+'</div></div>'+
       badge+
     '</div>'+
     '<div style="font-size:12px;color:#5A4F47;margin-bottom:4px;"><strong>'+aH(r.module||'—')+'</strong></div>'+
@@ -1901,7 +1902,7 @@ function admDownloadInvoice(orderId){
     }
     var invData = {
       invNo:rec.invoiceNo, invDate:rec.invDate||'—', dueDate:rec.dueDate||'—',
-      name:rec.name, email:rec.email, mobile:rec.mobile||'',
+      name:rec.name, email:rec.email, mobile:rec.mobile||'', mobileCode:rec.mobileCode||'+91',
       guide:rec.module, currency:recCurr,
       baseAmt:gd.base, gstAmt:gd.gst, totalAmt:gd.total,
       cgstAmt:Number(rec.cgstAmt||0), sgstAmt:Number(rec.sgstAmt||0), igstAmt:Number(rec.igstAmt||0), taxType:rec.taxType||'',
@@ -1971,7 +1972,7 @@ function admEditOpen(orderId){
   var rCurr = rec.currency||'INR'; var rSym = '\u20b9';
   if(rCurr==='USD') rSym='$'; else if(rCurr==='EUR') rSym='\u20ac';
   document.getElementById('admEd-cust').innerHTML =
-    '<div><strong>'+(rec.name||'—')+'</strong> · '+(rec.email||'—')+(rec.mobile?(' · +91 '+rec.mobile):'')+'</div>'+
+    '<div><strong>'+(rec.name||'—')+'</strong> · '+(rec.email||'—')+(rec.mobile?(' · '+(rec.mobileCode||'+91')+' '+rec.mobile):'')+'</div>'+
     '<div style="margin-top:4px;color:#5A4F47;">Base '+rSym+Number(rec.baseAmt||0).toFixed(2)+' · Tax '+rSym+Number(rec.gstAmt||0).toFixed(2)+' · Total <strong>'+rSym+Number(rec.amount||rec.totalAmt||0).toFixed(2)+'</strong> ('+rCurr+')</div>';
   document.getElementById('admEd_billCompany').value = rec.billCompany||'';
   document.getElementById('admEd_billLine1').value   = rec.billLine1  ||'';
