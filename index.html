@@ -1769,12 +1769,19 @@ async function admGhUpsert(rec){
   }
 }
 async function admGhMerge(){
-  var gh = []; try { var r = await admGhRead(); gh = r.records; admSync('ok','Synced'); } catch(e){ admSync('err','Offline'); }
-  var lo = JSON.parse(localStorage.getItem('membership_payments')||'[]');
-  var m = gh.slice();
-  lo.forEach(function(l){ if(!m.find(function(x){return x.orderId===l.orderId;})) m.push(l); });
-  localStorage.setItem('membership_payments', JSON.stringify(m));
-  return m;
+  /* GitHub is source-of-truth. If we successfully read it, REPLACE the local cache
+     so deleted/renamed records vanish instead of resurrecting from localStorage.
+     Only fall back to the local cache when GitHub is unreachable (offline mode). */
+  try {
+    var r = await admGhRead();
+    var gh = r.records || [];
+    admSync('ok','Synced');
+    localStorage.setItem('membership_payments', JSON.stringify(gh));
+    return gh;
+  } catch(e){
+    admSync('err','Offline');
+    return JSON.parse(localStorage.getItem('membership_payments')||'[]');
+  }
 }
 
 function admOpen(){ document.getElementById('adm-overlay').classList.add('open'); document.getElementById('adm-login').style.display='flex'; document.getElementById('adm-dash').style.display='none'; document.body.style.overflow='hidden'; setTimeout(function(){var el=document.getElementById('adm-pw');if(el)el.focus();},50); }
@@ -1923,18 +1930,33 @@ async function admDeleteRecord(orderId){
   var rec = admRecs.find(function(x){return x.orderId===orderId;});
   if(!rec){admToast('Record not found.');return;}
   var label = (rec.name||'—')+' · '+(rec.module||'—')+' · '+(rec.invoiceNo||rec.orderId);
-  if(!confirm('Permanently delete this record from GitHub?\n\n'+label+'\n\nThis cannot be undone.')) return;
+  if(!confirm('Permanently delete this record?\n\n'+label+'\n\nThis cannot be undone.')) return;
+  /* Always remove from local cache + in-memory list, regardless of server state. */
+  function dropLocal(){
+    var lo = JSON.parse(localStorage.getItem('membership_payments')||'[]');
+    lo = lo.filter(function(x){return x.orderId!==orderId;});
+    localStorage.setItem('membership_payments', JSON.stringify(lo));
+    admRecs = admRecs.filter(function(x){return x.orderId!==orderId;});
+    admStats(); admRender();
+  }
   try {
     var gh = await admGhRead();
     var idx = (gh.records||[]).findIndex(function(x){return x.orderId===orderId;});
-    if(idx<0){ admToast('Record not on server. Refreshing.'); admRefresh(); return; }
+    if(idx<0){
+      /* Local-only ghost (already gone from server) — just clear it locally. */
+      dropLocal();
+      admToast('🗑️ Removed local-only ghost '+(rec.invoiceNo||rec.orderId));
+      return;
+    }
     gh.records.splice(idx,1);
     var w = await fetch(ADM_API,{method:'PUT',headers:{'Content-Type':'application/json'},body:JSON.stringify({records:gh.records,sha:gh.sha,message:'admin: delete '+orderId})});
     if(!w.ok){var t='';try{t=await w.text();}catch(_){}throw new Error('Proxy write '+w.status+(t?': '+t.slice(0,120):''));}
-    admRecs = admRecs.filter(function(x){return x.orderId!==orderId;});
-    admStats(); admRender();
+    dropLocal();
     admToast('🗑️ Deleted '+(rec.invoiceNo||rec.orderId));
-  } catch(e){ console.error('Delete failed:', e); alert('Delete failed: '+(e.message||'unknown error')); }
+  } catch(e){
+    console.error('Delete failed:', e);
+    alert('Delete failed: '+(e.message||'unknown error'));
+  }
 }
 
 async function admMigrateInvoiceNos(){
