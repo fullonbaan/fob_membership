@@ -1,12 +1,12 @@
 // api/payments.js — Secure GitHub proxy for Membership payment records
-// Reads/writes  fullonbaan/fob_pay_store_membership : payments/membership_payments.json
+// Reads/writes  fullonbaan/fob_pay_store_ln_mem : payments/membership_payments.json
 // Vercel runtime: Node.js. The PAT is read from process.env.GITHUB_PAT
 // and never reaches the browser.
 
 const https = require('https');
 
 const GH_OWNER = 'fullonbaan';
-const GH_REPO  = 'fob_pay_store_membership';
+const GH_REPO  = 'fob_pay_store_ln_mem';
 const GH_FILE  = 'payments/membership_payments.json';
 
 function ghRequest(method, bodyObj) {

@@ -1,16 +1,16 @@
 // api/invoice-counter.js — Sequential GST invoice number generator
-// GET            → atomically increments counter and returns next FOB#######
+// GET            → atomically increments counter and returns next FOBM######
 // POST {counter} → sets counter to a specific value (used by Renumber migration).
-// Storage: fullonbaan/fob_pay_store_membership : payments/invoice_counter.json
+// Storage: fullonbaan/fob_pay_store_ln_mem : payments/invoice_counter.json
 // Vercel runtime: Node.js. PAT is read from process.env.GITHUB_PAT.
 
 const https = require('https');
 
 const GH_OWNER = 'fullonbaan';
-const GH_REPO  = 'fob_pay_store_membership';
+const GH_REPO  = 'fob_pay_store_ln_mem';
 const GH_FILE  = 'payments/invoice_counter.json';
 const PREFIX   = 'FOBM';   // Membership invoice prefix
-const PAD      = 6;        // FOBM + 6 digits → FOBM000001 .. FOBM999999
+const PAD      = 6;        // FOBM + 6 digits
 
 function ghRequest(method, bodyObj) {
   return new Promise((resolve, reject) => {
@@ -55,7 +55,7 @@ async function readCounter() {
     try {
       const data = JSON.parse(decoded);
       current = Number(data.counter) || 0;
-    } catch(e) {}
+    } catch (e) {}
   }
   return { current, sha: ghData.sha || null };
 }
