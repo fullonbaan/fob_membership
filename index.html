@@ -41,6 +41,7 @@
 
   <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
   <!-- Razorpay Standard Checkout -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
   <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   <!-- jsPDF + AutoTable for GST Invoice generation -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -347,7 +348,7 @@
       <!-- Price tag -->
       <div class="inline-flex items-center gap-4 bg-ink px-10 py-5 mb-9">
         <div>
-          <div class="font-body text-base text-white/35 line-through">&#x20B9;7,499</div>
+          <div class="font-body text-base text-white/35 line-through" data-fob-only-inr="1">&#x20B9;7,499</div>
           <div class="font-headline text-4xl font-bold text-gold" data-fob-price="membership">&#x20B9;1,999</div>
           <div class="font-mono text-[9px] tracking-[0.2em] uppercase text-white/55">Lifetime Access &middot; One-time Payment</div>
         </div>
@@ -433,7 +434,7 @@
             <div>
               <h4 class="font-headline text-xl font-bold mb-2">1 Free Certification Attempt</h4>
               <p class="text-sm text-ink-mid leading-relaxed">Take any certification exam at <a href="https://certification.fullonbaan.com/" target="_blank" rel="noopener" class="text-gold underline">certification.fullonbaan.com</a> completely free. Validate your Infor LN expertise.</p>
-              <span class="inline-block mt-2 text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full bg-gold/10 border border-gold/25 text-gold">Worth &#x20B9;499</span>
+              <span class="inline-block mt-2 text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full bg-gold/10 border border-gold/25 text-gold" data-fob-only-inr="1">Worth &#x20B9;499</span>
             </div>
           </div>
 
@@ -460,7 +461,7 @@
             <div>
               <h4 class="font-headline text-xl font-bold mb-2">1 Free Interview Prep Guide</h4>
               <p class="text-sm text-ink-mid leading-relaxed">Choose any module interview guide from <a href="https://interview.fullonbaan.com/" target="_blank" rel="noopener" class="text-gold underline">interview.fullonbaan.com</a> &mdash; Dev, Admin, ION, Finance, SCM, and more.</p>
-              <span class="inline-block mt-2 text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full bg-gold/10 border border-gold/25 text-gold">Worth &#x20B9;699</span>
+              <span class="inline-block mt-2 text-[9px] font-bold tracking-[0.15em] uppercase px-3 py-1 rounded-full bg-gold/10 border border-gold/25 text-gold" data-fob-only-inr="1">Worth &#x20B9;699</span>
             </div>
           </div>
 
@@ -533,11 +534,11 @@
         </tr>
       </thead>
       <tbody>
-        <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">7 Infor LN eBooks</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">Buy individually (&#x20B9;2,500+)</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> All included free</td></tr>
-        <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Certification Attempt</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">&#x20B9;499 per attempt</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> 1 free attempt</td></tr>
+        <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">7 Infor LN eBooks</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50" data-fob-only-inr="1">Buy individually (&#x20B9;2,500+)</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> All included free</td></tr>
+        <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Certification Attempt</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50" data-fob-only-inr="1">&#x20B9;499 per attempt</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> 1 free attempt</td></tr>
         <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">eBook Discounts</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">Full price</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> 20% off all eBooks</td></tr>
         <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Course Discounts</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">Full price</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> 15% off all courses</td></tr>
-        <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Interview Prep Guide</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">&#x20B9;699 each</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> 1 free guide</td></tr>
+        <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Interview Prep Guide</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50" data-fob-only-inr="1">&#x20B9;699 each</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> 1 free guide</td></tr>
         <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left border-b border-border/50">Premium Community</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center border-b border-border/50">No access</td><td class="px-5 py-4 text-[13px] text-center border-b border-border/50"><span class="text-green font-bold">&#x2713;</span> Freelancing &amp; networking</td></tr>
         <tr><td class="px-5 py-4 text-[13px] font-medium text-ink text-left">Early Access Content</td><td class="px-5 py-4 text-[13px] text-ink-lt text-center">No</td><td class="px-5 py-4 text-[13px] text-center"><span class="text-green font-bold">&#x2713;</span> First to know</td></tr>
       </tbody>
@@ -554,15 +555,15 @@
 
     <div class="bg-white/[0.04] border border-gold/30 p-14 max-w-[520px] mx-auto relative max-md:p-8">
       <div class="absolute top-0 left-1/2 -translate-x-1/2 bg-gold text-white font-mono text-[8px] font-bold tracking-[0.2em] uppercase px-5 py-1.5 whitespace-nowrap">Best Value &middot; Limited Offer</div>
-      <div class="text-sm text-white/25 line-through mt-4">&#x20B9;7,499</div>
+      <div class="text-sm text-white/25 line-through mt-4" data-fob-only-inr="1">&#x20B9;7,499</div>
       <div class="font-headline text-[56px] font-bold text-gold mb-2" data-fob-price="membership">&#x20B9;1,999</div>
       <div class="font-mono text-[10px] tracking-[0.2em] uppercase text-white/45 mb-8">One-time payment &middot; Lifetime access</div>
       <ul class="text-left mb-9 space-y-0">
-        <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> 7 premium Infor LN eBooks (worth &#x20B9;2,500+)</li>
-        <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> 1 free certification attempt (worth &#x20B9;499)</li>
+        <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> 7 premium Infor LN eBooks<span data-fob-only-inr="1"> (worth &#x20B9;2,500+)</span></li>
+        <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> 1 free certification attempt<span data-fob-only-inr="1"> (worth &#x20B9;499)</span></li>
         <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> 20% off all eBooks at training.fullonbaan.com</li>
         <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> 15% off all courses at courses.fullonbaan.com</li>
-        <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> 1 free interview preparation guide (worth &#x20B9;699)</li>
+        <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> 1 free interview preparation guide<span data-fob-only-inr="1"> (worth &#x20B9;699)</span></li>
         <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> Premium WhatsApp group for freelancing</li>
         <li class="text-[13px] text-white/70 py-2.5 border-b border-white/[0.06] flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> Priority access to all new content releases</li>
         <li class="text-[13px] text-white/70 py-2.5 flex items-start gap-2.5"><span class="text-gold font-bold shrink-0">&#x2713;</span> Full ecosystem access &mdash; 37,000+ knowledge threads</li>
@@ -671,7 +672,7 @@
           What payment methods do you accept?
           <span class="absolute right-0 top-1/2 -translate-y-1/2 font-body text-2xl font-light text-gold">+</span>
         </button>
-        <div class="faq-answer"><div class="pb-6 text-sm text-ink-mid font-light leading-relaxed">We accept all UPI-based payments &mdash; Google Pay, PhonePe, Paytm, BHIM, and WhatsApp Pay. Simply scan the QR code or use the direct app links at checkout. The total amount is &#x20B9;1,999 (one-time).</div></div>
+        <div class="faq-answer"><div class="pb-6 text-sm text-ink-mid font-light leading-relaxed">We accept all major payment methods through Razorpay &mdash; UPI (Google Pay, PhonePe, Paytm, BHIM, WhatsApp Pay), credit / debit cards, net banking, and international cards. The total is a one-time payment of <span data-fob-price="membership">&#x20B9;1,999</span>.</div></div>
       </div>
 
       <div class="faq-item border-b border-border">
@@ -717,7 +718,7 @@
     <div class="flex-1 min-w-[280px]">
       <span class="font-mono text-[10px] uppercase tracking-[0.3em] text-gold mb-4 block">Get Started</span>
       <h2 class="font-headline text-4xl font-bold text-ink mb-5">Join the Membership</h2>
-      <p class="text-sm text-ink-mid font-light leading-relaxed mb-10">Secure your lifetime membership with a single UPI payment of &#x20B9;1,999. Your eBooks, certification voucher, discount codes, and community invite will be delivered to your email within hours of verification.</p>
+      <p class="text-sm text-ink-mid font-light leading-relaxed mb-10">Secure your lifetime membership with a single payment of <span data-fob-price="membership">&#x20B9;1,999</span>. Your eBooks, certification voucher, discount codes, and community invite will be delivered to your email within hours of verification.</p>
       <div class="flex flex-col gap-5">
         <a class="flex items-center gap-4 no-underline text-ink hover:text-gold transition-colors" href="https://wa.me/916360593122?text=Hi%2C%20I%27m%20interested%20in%20the%20FullOnBaan%20Lifetime%20Membership.%20Could%20you%20share%20more%20details%3F" target="_blank" rel="noopener">
           <span class="text-gold text-[22px]">&#x1F4AC;</span>
@@ -765,11 +766,31 @@
                 <button class="bg-transparent border border-border px-3.5 py-1.5 text-xs text-gold cursor-pointer font-body hover:bg-gold-pale transition-colors" onclick="goToStep1()">&#x2190; Back</button>
                 <div class="font-headline text-lg font-bold text-ink">Your Details</div>
               </div>
-              <div class="bg-gold-pale border border-gold/20 p-2.5 px-3.5 text-xs text-ink-mid font-medium mb-3.5" id="step2Summary">FullOnBaan Lifetime Membership &middot; &#x20B9;1,999</div>
+              <div class="bg-gold-pale border border-gold/20 p-2.5 px-3.5 text-xs text-ink-mid font-medium mb-3.5" id="step2Summary">FullOnBaan Lifetime Membership &middot; <span data-fob-price="membership">&#x20B9;1,999</span></div>
               <div class="flex flex-col gap-2.5 mb-3">
                 <div class="flex flex-col gap-1"><label class="font-mono text-[9px] tracking-[2.5px] uppercase text-gold block">Full Name *</label><input type="text" class="w-full p-3 bg-white border border-border text-ink font-body text-[13px] focus:outline-none focus:border-gold transition-colors" id="userName" placeholder="Enter your full name" /></div>
                 <div class="flex flex-col gap-1"><label class="font-mono text-[9px] tracking-[2.5px] uppercase text-gold block">Email ID *</label><input type="email" class="w-full p-3 bg-white border border-border text-ink font-body text-[13px] focus:outline-none focus:border-gold transition-colors" id="userEmail" placeholder="Enter your email address" /></div>
-                <div class="flex flex-col gap-1"><label class="font-mono text-[9px] tracking-[2.5px] uppercase text-gold block">Mobile No <span class="font-normal text-ink-lt text-[9px] tracking-[0.1em]">(OPTIONAL)</span></label><input type="tel" class="w-full p-3 bg-white border border-border text-ink font-body text-[13px] focus:outline-none focus:border-gold transition-colors" id="userMobile" placeholder="Enter your 10-digit mobile number" maxlength="10" /></div>
+                <div class="flex flex-col gap-1">
+                  <label class="font-mono text-[9px] tracking-[2.5px] uppercase text-gold block">Mobile No *</label>
+                  <div class="flex items-center bg-white border border-border focus-within:border-gold transition-colors px-2" id="cc-wrapper">
+                    <div class="relative shrink-0">
+                      <button type="button" id="cc-btn" onclick="toggleCCDropdown()" class="flex items-center gap-1.5 py-2.5 pr-2 text-[13px] font-semibold text-ink whitespace-nowrap focus:outline-none bg-transparent border-0 cursor-pointer font-body">
+                        <span id="cc-flag" class="fi fi-in" style="width:20px;height:15px;display:inline-block;border-radius:2px;"></span>
+                        <span id="cc-code">+91</span>
+                        <span class="text-[10px] text-ink-lt">&#x25BE;</span>
+                      </button>
+                      <div id="cc-dropdown" class="absolute left-0 top-full z-50 mt-1 w-64 max-h-72 overflow-y-auto bg-white border border-border shadow-xl text-sm" style="display:none;">
+                        <div class="sticky top-0 bg-white px-3 pt-3 pb-2 border-b border-border/40">
+                          <input id="cc-search" type="text" placeholder="Search country&hellip;" class="w-full border border-border px-3 py-1.5 text-xs bg-white font-body focus:outline-none focus:border-gold" oninput="filterCC(this.value)" onclick="event.stopPropagation()"/>
+                        </div>
+                        <ul id="cc-list" class="pb-2 list-none m-0 p-0"></ul>
+                      </div>
+                    </div>
+                    <span class="text-border mx-1.5 select-none">|</span>
+                    <input id="mobile-number" type="tel" class="flex-1 bg-transparent py-2.5 outline-none text-[13px] text-ink font-body" placeholder="XXXXX XXXXX" maxlength="15" required>
+                    <input type="hidden" id="userMobile">
+                  </div>
+                </div>
               </div>
 
               <!-- Billing Address (mandatory for GST Invoice) -->
@@ -919,6 +940,98 @@
 /* ═══════════════════════════════════════════════════════════════════════
    FullOnBaan Membership — Razorpay Payment + Admin + GST Invoice
    ─────────────────────────────────────────────────────────────────────── */
+
+/* ── Country Code Picker ── */
+var CC_DATA = [
+  {iso:'in',name:'India',code:'+91'},
+  {iso:'us',name:'United States',code:'+1'},
+  {iso:'gb',name:'United Kingdom',code:'+44'},
+  {iso:'ae',name:'UAE',code:'+971'},
+  {iso:'sa',name:'Saudi Arabia',code:'+966'},
+  {iso:'au',name:'Australia',code:'+61'},
+  {iso:'ca',name:'Canada',code:'+1'},
+  {iso:'sg',name:'Singapore',code:'+65'},
+  {iso:'my',name:'Malaysia',code:'+60'},
+  {iso:'za',name:'South Africa',code:'+27'},
+  {iso:'de',name:'Germany',code:'+49'},
+  {iso:'fr',name:'France',code:'+33'},
+  {iso:'nl',name:'Netherlands',code:'+31'},
+  {iso:'be',name:'Belgium',code:'+32'},
+  {iso:'ch',name:'Switzerland',code:'+41'},
+  {iso:'se',name:'Sweden',code:'+46'},
+  {iso:'no',name:'Norway',code:'+47'},
+  {iso:'dk',name:'Denmark',code:'+45'},
+  {iso:'fi',name:'Finland',code:'+358'},
+  {iso:'it',name:'Italy',code:'+39'},
+  {iso:'es',name:'Spain',code:'+34'},
+  {iso:'pt',name:'Portugal',code:'+351'},
+  {iso:'pl',name:'Poland',code:'+48'},
+  {iso:'cz',name:'Czech Republic',code:'+420'},
+  {iso:'ro',name:'Romania',code:'+40'},
+  {iso:'tr',name:'Turkey',code:'+90'},
+  {iso:'ru',name:'Russia',code:'+7'},
+  {iso:'kz',name:'Kazakhstan',code:'+77'},
+  {iso:'jp',name:'Japan',code:'+81'},
+  {iso:'kr',name:'South Korea',code:'+82'},
+  {iso:'cn',name:'China',code:'+86'},
+  {iso:'hk',name:'Hong Kong',code:'+852'},
+  {iso:'tw',name:'Taiwan',code:'+886'},
+  {iso:'id',name:'Indonesia',code:'+62'},
+  {iso:'ph',name:'Philippines',code:'+63'},
+  {iso:'th',name:'Thailand',code:'+66'},
+  {iso:'vn',name:'Vietnam',code:'+84'},
+  {iso:'bd',name:'Bangladesh',code:'+880'},
+  {iso:'pk',name:'Pakistan',code:'+92'},
+  {iso:'lk',name:'Sri Lanka',code:'+94'},
+  {iso:'np',name:'Nepal',code:'+977'},
+  {iso:'ng',name:'Nigeria',code:'+234'},
+  {iso:'ke',name:'Kenya',code:'+254'},
+  {iso:'gh',name:'Ghana',code:'+233'},
+  {iso:'eg',name:'Egypt',code:'+20'},
+  {iso:'ma',name:'Morocco',code:'+212'},
+  {iso:'br',name:'Brazil',code:'+55'},
+  {iso:'mx',name:'Mexico',code:'+52'},
+  {iso:'ar',name:'Argentina',code:'+54'},
+  {iso:'co',name:'Colombia',code:'+57'}
+];
+function renderCCList(filter){
+  var ul = document.getElementById('cc-list');
+  if(!ul) return;
+  var q = (filter||'').toLowerCase();
+  var list = q ? CC_DATA.filter(function(c){return c.name.toLowerCase().indexOf(q)>=0||c.code.indexOf(q)>=0;}) : CC_DATA;
+  ul.innerHTML = list.map(function(c){
+    return '<li><button type="button" onclick="selectCC(\''+c.iso+'\',\''+c.code+'\')" class="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-gold-pale text-left transition-colors bg-transparent border-0 cursor-pointer font-body">'+
+      '<span class="fi fi-'+c.iso+'" style="width:20px;height:15px;display:inline-block;border-radius:2px;"></span>'+
+      '<span class="flex-1 text-xs text-ink">'+c.name+'</span>'+
+      '<span class="text-xs text-ink-mid font-semibold">'+c.code+'</span>'+
+      '</button></li>';
+  }).join('');
+}
+window.selectCC = function(iso, code){
+  var flagEl = document.getElementById('cc-flag');
+  if(flagEl){ flagEl.className = 'fi fi-'+iso; flagEl.style.cssText = 'width:20px;height:15px;display:inline-block;border-radius:2px;'; }
+  var codeEl = document.getElementById('cc-code'); if(codeEl) codeEl.textContent = code;
+  var dd = document.getElementById('cc-dropdown'); if(dd) dd.style.display = 'none';
+  var num = document.getElementById('mobile-number'); if(num) num.focus();
+};
+window.toggleCCDropdown = function(){
+  var dd = document.getElementById('cc-dropdown'); if(!dd) return;
+  var hidden = dd.style.display === 'none';
+  dd.style.display = hidden ? 'block' : 'none';
+  if(hidden){
+    renderCCList('');
+    var srch = document.getElementById('cc-search');
+    if(srch){ srch.value=''; setTimeout(function(){srch.focus();},50); }
+  }
+};
+window.filterCC = function(val){ renderCCList(val); };
+document.addEventListener('click', function(e){
+  var w = document.getElementById('cc-wrapper');
+  if(w && !w.contains(e.target)){
+    var dd = document.getElementById('cc-dropdown'); if(dd) dd.style.display='none';
+  }
+});
+document.addEventListener('DOMContentLoaded', function(){ renderCCList(''); });
 
 /* ── EmailJS ── */
 var EMAILJS_PUBLIC_KEY  = 'aDL0FEenlYJ8WaJne';
@@ -1110,8 +1223,12 @@ function applyCurrencyToPage(curr){
   /* Pay button label */
   var amtDisp = document.getElementById('rzpAmtDisplay');
   if(amtDisp) amtDisp.textContent = fmtMoney(price, curr) + (curr==='INR'?' (incl. 18% GST)':'');
-  /* Sticky bar price + label */
+  /* Every membership price chip across the site */
   document.querySelectorAll('[data-fob-price="membership"]').forEach(function(el){ el.textContent = fmtMoney(price, curr); });
+  /* INR-only marketing elements (strikethrough originals, "Worth ₹X" badges, etc.) — hide when not INR */
+  document.querySelectorAll('[data-fob-only-inr]').forEach(function(el){
+    el.style.display = (curr === 'INR') ? '' : 'none';
+  });
 }
 
 /* ── Auto-detect initial currency by timezone, then language, fallback USD ── */
@@ -1155,7 +1272,9 @@ window.retryPayment = function(){ successFired=false; failureFired=false; showSt
 window.goToStep3 = function(){
   var name = document.getElementById('userName').value.trim();
   var email = document.getElementById('userEmail').value.trim();
-  var mobile = document.getElementById('userMobile').value.trim();
+  var mobileRaw  = (document.getElementById('mobile-number').value||'').replace(/[\s\-().]/g,'').trim();
+  var mobileCode = (document.getElementById('cc-code').textContent||'+91').trim();
+  var mobile = mobileRaw.replace(/\D/g,'');
   var err = document.getElementById('fieldError');
 
   var billCompany = (document.getElementById('billCompany').value||'').trim();
@@ -1177,7 +1296,10 @@ window.goToStep3 = function(){
 
   if(!name){err.textContent='Please enter your full name.';return;}
   if(!email||!email.includes('@')){err.textContent='Please enter a valid email address.';return;}
-  if(mobile && mobile.length<10){err.textContent='Please enter a valid 10-digit mobile number.';return;}
+  /* Mobile is now mandatory — length depends on country code */
+  var minLen = (mobileCode==='+91') ? 10 : 7;
+  if(!mobile){err.textContent='Please enter your mobile number.';return;}
+  if(mobile.length<minLen){err.textContent='Please enter a valid mobile number ('+(mobileCode==='+91'?'10 digits':'min 7 digits')+').';return;}
   if(!billLine1){err.textContent='Please enter your billing address (Line 1). Mandatory for GST Invoice.';return;}
   if(!billCity){err.textContent='Please enter the city for your billing address.';return;}
   if(!billPincode){err.textContent='Please enter the PIN / ZIP code.';return;}
@@ -1196,11 +1318,11 @@ window.goToStep3 = function(){
   selCurr = SEL_CURR;
   selAmount = MEMBERSHIP.prices[selCurr];
   userData = {
-    name:name,email:email,mobile:mobile,
-    billCompany:billCompany,billLine1:billLine1,billLine2:billLine2,
-    billCity:billCity,billPincode:billPincode,billCountry:billCountry,
-    billStateCode:billStateCd,billStateName:billStateName,
-    gstin:billGstin,gstLegalName:billLegalName
+    name:name, email:email, mobile:mobile, mobileCode:mobileCode, mobileDisplay:mobileCode+' '+mobile,
+    billCompany:billCompany, billLine1:billLine1, billLine2:billLine2,
+    billCity:billCity, billPincode:billPincode, billCountry:billCountry,
+    billStateCode:billStateCd, billStateName:billStateName,
+    gstin:billGstin, gstLegalName:billLegalName
   };
   txnRef = 'FOBM' + Date.now();
   successFired = false; failureFired = false;
@@ -1219,7 +1341,7 @@ window.goToStep3 = function(){
     var today=new Date();
     admGhUpsert({
       orderId:txnRef, status:'initiated',
-      name:name, email:email, mobile:mobile,
+      name:name, email:email, mobile:mobile, mobileCode:mobileCode,
       module:MEMBERSHIP.name, amount:selAmount, currency:selCurr,
       baseAmt:split.base, gstAmt:split.gst, totalAmt:split.total,
       cgstAmt:split.cgst, sgstAmt:split.sgst, igstAmt:split.igst, taxType:split.taxType,
@@ -1260,7 +1382,7 @@ window.goToStep3 = function(){
     name: 'FullOnBaan',
     description: MEMBERSHIP.name,
     image: 'https://membership.fullonbaan.com/FOB_New_Logo.JPG',
-    prefill: { name:name, email:email, contact:mobile?('+91'+mobile):'' },
+    prefill: { name:name, email:email, contact:mobile?(mobileCode+mobile):'' },
     notes: rzpNotes,
     theme: { color:'#A8782A' },
     handler: function(response){
@@ -1330,14 +1452,14 @@ window.onPaymentSuccess = async function(payId){
   showStep('step4');
 
   /* Emails */
-  sendEmail({to_email:'fullonbaan@gmail.com',subject:'New Membership Order \u2014 '+userData.name,status:'PAYMENT CONFIRMED \u2014 RAZORPAY',order_ref:txnRef,utr_number:payId,guide:MEMBERSHIP.name,amount:fmtMoney(selAmount,selCurr)+(selCurr==='INR'?(' (Base: '+fmtMoney(split.base,'INR')+' + GST '+fmtMoney(split.gst,'INR')+')'):' (no GST)'),cust_name:userData.name,cust_email:userData.email,cust_mobile:userData.mobile?('+91 '+userData.mobile):'(not provided)',message:'Invoice No: '+invNo+'. Razorpay Payment ID: '+payId});
-  sendEmail({to_email:userData.email,subject:'Your FullOnBaan Membership \u2014 '+invNo,status:'PAYMENT CONFIRMED',order_ref:txnRef,utr_number:payId,guide:MEMBERSHIP.name,amount:fmtMoney(selAmount,selCurr),cust_name:userData.name,cust_email:userData.email,cust_mobile:userData.mobile?('+91 '+userData.mobile):'(not provided)',message:'Welcome to FullOnBaan! Your Razorpay payment (ID: '+payId+') was successful. Invoice: '+invNo+'. Your 7 eBooks, certification voucher, discount codes, and WhatsApp group invite will be delivered to your email shortly.'});
+  sendEmail({to_email:'fullonbaan@gmail.com',subject:'New Membership Order \u2014 '+userData.name,status:'PAYMENT CONFIRMED \u2014 RAZORPAY',order_ref:txnRef,utr_number:payId,guide:MEMBERSHIP.name,amount:fmtMoney(selAmount,selCurr)+(selCurr==='INR'?(' (Base: '+fmtMoney(split.base,'INR')+' + GST '+fmtMoney(split.gst,'INR')+')'):' (no GST)'),cust_name:userData.name,cust_email:userData.email,cust_mobile:userData.mobile?(userData.mobileCode+' '+userData.mobile):'(not provided)',message:'Invoice No: '+invNo+'. Razorpay Payment ID: '+payId});
+  sendEmail({to_email:userData.email,subject:'Your FullOnBaan Membership \u2014 '+invNo,status:'PAYMENT CONFIRMED',order_ref:txnRef,utr_number:payId,guide:MEMBERSHIP.name,amount:fmtMoney(selAmount,selCurr),cust_name:userData.name,cust_email:userData.email,cust_mobile:userData.mobile?(userData.mobileCode+' '+userData.mobile):'(not provided)',message:'Welcome to FullOnBaan! Your Razorpay payment (ID: '+payId+') was successful. Invoice: '+invNo+'. Your 7 eBooks, certification voucher, discount codes, and WhatsApp group invite will be delivered to your email shortly.'});
 };
 
 /* ── Payment failure ── */
 window.onPaymentFailure = function(errObj){
   if(failureFired) return; failureFired = true;
-  document.getElementById('failContact').textContent = userData.email + (userData.mobile?(' / +91 '+userData.mobile):'');
+  document.getElementById('failContact').textContent = userData.email + (userData.mobile?(' / '+userData.mobileCode+' '+userData.mobile):'');
   document.getElementById('failOrderBox').innerHTML =
     '<strong>Product:</strong> '+MEMBERSHIP.name+
     '<br><strong>Amount:</strong> '+fmtMoney(selAmount,selCurr)+
