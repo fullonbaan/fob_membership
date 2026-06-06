@@ -1432,7 +1432,8 @@ window.onPaymentSuccess = async function(payId){
   if(typeof admGhUpsert==='function'){
     admGhUpsert(Object.assign({orderId:txnRef}, currentInvData, {
       status:'submitted', utr:payId, submittedAt:new Date().toISOString(),
-      module:MEMBERSHIP.name, amount:selAmount
+      module:MEMBERSHIP.name, amount:selAmount,
+      invoiceNo:invNo   /* persist under the key the record/admin UI reads (was only stored as invNo) */
     }));
   }
 
@@ -1872,6 +1873,7 @@ function admCard(r){
   acts+='<button class="acopy" onclick="admEditOpen(\''+aE(r.orderId)+'\')" style="background:rgba(34,197,94,0.08);border-color:rgba(34,197,94,0.4);color:#16a34a;">✏️ Edit Billing</button>';
   acts+='<button class="acopy" onclick="admDeleteRecord(\''+aE(r.orderId)+'\')" style="background:rgba(239,68,68,0.08);border-color:rgba(239,68,68,0.4);color:#dc2626;">🗑️ Delete</button>';
   if(s&&r.invoiceNo) acts+='<button class="acopy inv-dl" onclick="admDownloadInvoice(\''+aE(r.orderId)+'\')">📄 GST Invoice</button>';
+  if(s&&!r.invoiceNo) acts+='<button class="acopy" onclick="admGenerateInvoice(\''+aE(r.orderId)+'\')" style="background:rgba(168,120,42,0.12);border-color:#A8782A;color:#A8782A;font-weight:700;">🧾 Generate Invoice</button>';
   var badge = s ? ('<span style="padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(34,197,94,0.12);color:#16a34a;">✅ Confirmed</span>')
               : f ? ('<span style="padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(239,68,68,0.12);color:#dc2626;">❌ Failed</span>')
                   : ('<span style="padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700;background:rgba(251,191,36,0.12);color:#A8782A;">💳 Initiated</span>');
@@ -1893,6 +1895,33 @@ function admSync(st,lb){var d=document.getElementById('adot'),l=document.getElem
 function admCp(t,lb){navigator.clipboard.writeText(t).then(function(){admToast('📋 Copied '+lb);}).catch(function(){admToast(lb+': '+t);});}
 var _att;
 function admToast(m){var el=document.getElementById('adm-toast');if(!el)return;el.textContent=m;el.style.opacity='1';clearTimeout(_att);_att=setTimeout(function(){el.style.opacity='0';},2200);}
+
+async function admGenerateInvoice(orderId){
+  var rec = admRecs.find(function(x){return x.orderId===orderId;});
+  if(!rec){admToast('Record not found.');return;}
+  if(rec.status!=='submitted'){admToast('Only confirmed records can be invoiced.');return;}
+  if(rec.invoiceNo){admToast('Invoice already exists: '+rec.invoiceNo);return;}
+  admToast('🧾 Assigning next invoice number…');
+  var invNo;
+  try { invNo = await genInvoiceNoGH(); }
+  catch(e){ admToast('Invoice number service failed.'); return; }
+  if(!invNo){ admToast('Could not obtain invoice number.'); return; }
+  /* Backfill billing-derived tax + dates if missing, so the PDF is complete */
+  var fmtD=function(d){return String(d.getDate()).padStart(2,'0')+'/'+String(d.getMonth()+1).padStart(2,'0')+'/'+d.getFullYear();};
+  var today=new Date();
+  var patch = { invoiceNo:invNo, invoiceAssignedAt:new Date().toISOString() };
+  if(!rec.invDate) patch.invDate = fmtD(today);
+  if(!rec.dueDate) patch.dueDate = fmtD(new Date(today.getTime()+15*24*60*60*1000));
+  var merged = Object.assign({}, rec, patch);
+  try {
+    await admGhUpsert(merged);
+    var i = admRecs.findIndex(function(x){return x.orderId===orderId;});
+    if(i>=0) admRecs[i] = merged;
+    admStats(); admRender();
+    admToast('✅ Invoice '+invNo+' assigned');
+    admDownloadInvoice(orderId);
+  } catch(e){ console.error(e); admToast('Save failed: '+(e.message||'error')); }
+}
 
 function admDownloadInvoice(orderId){
   var rec = admRecs.find(function(x){return x.orderId===orderId;});
